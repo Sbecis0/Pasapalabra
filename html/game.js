@@ -388,16 +388,16 @@ function endGame() {
     const correctPercentage = (score.correct / totalQuestions) * 100;
 
     if (correctPercentage >= 90) {
-        performanceMessageText = '¡Excelente trabajo! Un verdadero campeón del Pasapalabra.';
+        performanceMessageText = 'WUUUUUUUUAAAAAAAW!! Good Boy';
         performanceClass = 'excellent';
     } else if (correctPercentage >= 70) {
-        performanceMessageText = '¡Buen rendimiento! Sigue practicando para mejorar.';
+        performanceMessageText = '¡Muy bien Chiquitín!.';
         performanceClass = 'good';
     } else if (correctPercentage >= 40) {
-        performanceMessageText = 'Resultado promedio. ¡Puedes hacerlo mejor!';
+        performanceMessageText = 'Meh, yo qué sé brother...';
         performanceClass = 'average';
     } else {
-        performanceMessageText = 'Necesitas más práctica. ¡No te rindas!';
+        performanceMessageText = '¡Tolai!';
         performanceClass = 'poor';
     }
 
