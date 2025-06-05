@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasapalabra</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div class="game-container">
+    <div class="game-info">
+        <div class="score">
+            <h2>PASAPALABRA</h2>
+            <div class="timer" id="timer">150</div>
+        </div>
+        <div class="stats">
+            <div class="stat-item">
+                <div>Correctas</div>
+                <div id="correct-count">0</div>
+            </div>
+            <div class="stat-item">
+                <div>Incorrectas</div>
+                <div id="incorrect-count">0</div>
+            </div>
+            <div class="stat-item">
+                <div>Pasapalabras</div>
+                <div id="passed-count">0</div>
+            </div>
+            <div class="stat-item">
+                <div>Restantes</div>
+                <div id="remaining-count">27</div>
+            </div>
+        </div>
+        <div class="difficulty-selector">
+            <label for="difficulty">Dificultad:</label>
+            <select id="difficulty">
+                <option value="easy">Fácil</option>
+                <option value="medium" selected>Normal</option>
+                <option value="hard">Difícil</option>
+                <option value="expert">Experto</option>
+            </select>
+        </div>
+        <button class="btn-start" id="start-btn" onclick="startGame()">COMENZAR JUEGO</button>
+        <button class="btn-start" id="clear-history-btn">ELIMINAR HISTORIAL</button>
+    </div>
+
+    <div class="rosco-container">
+        <div class="rosco" id="rosco"></div>
+    </div>
+
+    <div class="question-area">
+        <div class="current-letter-display" id="current-letter-display">
+            Letra: <span id="current-letter-text">-</span>
+        </div>
+        <div class="question" id="question">
+            Presiona "COMENZAR JUEGO" para empezar tu desafío de Pasapalabra. ¡Tienes 150 segundos para completar el rosco!
+        </div>
+        <div id="game-controls" class="hidden">
+            <input type="text" class="answer-input" id="answer-input" placeholder="Escribe tu respuesta..." disabled>
+            <div class="buttons">
+                <button class="btn-submit" onclick="submitAnswer()">RESPONDER</button>
+                <button class="btn-pass" onclick="passWord()">PASAPALABRA</button>
+            </div>
+            <div class="hint-section">
+                <button class="btn-hint" onclick="showHint()">💡 PISTA</button>
+                <div id="hint-text" class="hint-text hidden"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="game-over" id="game-over">
+    <div class="game-over-content">
+        <h2>¡JUEGO TERMINADO!</h2>
+        <div class="final-score">
+            Puntuación: <span id="final-score">0</span>/27
+        </div>
+        <div class="difficulty-badge">
+            Dificultad: <span id="final-difficulty"></span>
+        </div>
+        <div id="final-stats"></div>
+        <div class="performance-message" id="performance-message"></div>
+        <button class="btn-start" onclick="resetGame()">JUGAR DE NUEVO</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <p class="footer-text">Hecho por Saber Becis</p>
+    <p class="footer-text">
+        <a href="https://github.com/Sbecis0/Pasapalabra" target="_blank" rel="noopener noreferrer">Repositorio Github</a>
+    </p>
+    <p class="footer-text">Para actualizaciones al email: Sbeci0@gmail.com</p>
+</footer>
+<script src="../js/questions.js"></script>
+<script src="../js/game.js"></script>
+</body>
+</html>
