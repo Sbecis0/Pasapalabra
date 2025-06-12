@@ -17,7 +17,7 @@ let gameStarted = false;
 let currentDifficulty = 'medium';
 
 // Creo la media query para calcular los circulos de forma responsive
-const smallDevices = window.matchMedia("(max-width: 700px)")
+let smallDevices = window.matchMedia("(max-width: 700px)")
 // Referencias a elementos del DOM
 const roscoElement = document.getElementById('rosco');
 const timerElement = document.getElementById('timer');
@@ -106,7 +106,7 @@ function isMobile(query) {
 }
 
 isMobile(smallDevices);
-x.addEventListener("change", function() {
+smallDevices.addEventListener("change", function() {
   isMobile(smallDevices);
 });
 // Función para preparar el rosco visual
