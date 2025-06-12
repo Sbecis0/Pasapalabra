@@ -16,6 +16,8 @@ let timeLeft = 150; // Tiempo inicial
 let gameStarted = false;
 let currentDifficulty = 'medium';
 
+// Creo la media query para calcular los circulos de forma responsive
+const smallDevices = window.matchMedia("(max-width: 700px)")
 // Referencias a elementos del DOM
 const roscoElement = document.getElementById('rosco');
 const timerElement = document.getElementById('timer');
@@ -94,12 +96,26 @@ function shuffleArray(array) {
     return array;
 }
 
+
+function isMobile(query) {
+  if (query.matches) { // If media query matches
+    return true;
+  } else {
+    return false;
+  }
+}
+
+isMobile(smallDevices);
+x.addEventListener("change", function() {
+  isMobile(smallDevices);
+});
 // Función para preparar el rosco visual
 function createRoscoLetters() {
+    let smallCircle = isMobile(smallDevices);
     roscoElement.innerHTML = ''; // Limpiar rosco anterior
     const numLetters = alphabet.length;
     const angleStep = (2 * Math.PI) / numLetters;
-    const radius = 170; // Radio para posicionar las letras
+    const radius = smallCircle ?? 170 : 100; // Radio para posicionar las letras
 
     for (let i = 0; i < numLetters; i++) {
         const angle = i * angleStep - Math.PI / 2; // -PI/2 para empezar desde arriba (A)
