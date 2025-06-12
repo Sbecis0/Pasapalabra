@@ -115,7 +115,7 @@ function createRoscoLetters() {
     roscoElement.innerHTML = ''; // Limpiar rosco anterior
     const numLetters = alphabet.length;
     const angleStep = (2 * Math.PI) / numLetters;
-    const radius = smallCircle ?? 170 : 100; // Radio para posicionar las letras
+    const radius = smallCircle ? 170 : 100; // Radio para posicionar las letras
 
     for (let i = 0; i < numLetters; i++) {
         const angle = i * angleStep - Math.PI / 2; // -PI/2 para empezar desde arriba (A)
